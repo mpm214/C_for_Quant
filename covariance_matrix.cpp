@@ -1,6 +1,7 @@
 // Covariance Matrix 
 #include <vector>
 #include <cstddef> // For size_t
+#include <iostream>
 
 // Function to compute the covariance matrix
 std::vector<std::vector<double>> covarianceMatrix(const std::vector<std::vector<double>>& data) {
@@ -26,4 +27,28 @@ std::vector<std::vector<double>> covarianceMatrix(const std::vector<std::vector<
     }
     
     return cov;
+}
+
+int main() {
+    // Example data: rows are data points, columns are variables
+    std::vector<std::vector<double>> data = {
+        {4.0, 2.0, 0.6},
+        {4.2, 2.1, 0.59},
+        {3.9, 2.0, 0.58},
+        {4.3, 2.1, 0.62},
+        {4.1, 2.2, 0.63}
+    };
+
+    // Compute covariance matrix
+    std::vector<std::vector<double>> cov = covarianceMatrix(data);
+
+    // Print covariance matrix
+    for (const auto& row : cov) {
+        for (double value : row) {
+            std::cout << value << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    return 0;
 }
